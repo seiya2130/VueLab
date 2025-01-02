@@ -1,14 +1,12 @@
 <template>
-  <div>
-    <p>Count: {{ count }}</p>
-    <button @click="increment">+</button>
-    <button @click="decrement">-</button>
-  </div>
+  <Counter :initial-count='num1'></Counter>
+  <Counter :initial-count='num2'></Counter>
 </template>
 
 <script setup lang="ts">
-import { useCounter } from './helpers/userCounter';
+import Counter from './Counter.vue';
 
-const { count, increment, decrement } = useCounter(0);
+const num1 = 100;
+const num2 = 200;
 
 </script>
