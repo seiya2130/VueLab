@@ -1,19 +1,21 @@
 <template>
-  <template v-if="flg">
-    <h1>Title</h1>
-    <p>Paragraph 1</p>
-    <p>Paragraph 2</p>
-  </template>
-
-  <ul>
-    <template v-for="item in [1, 2, 3]">
-      <li>{{ item }}</li>
-    </template>
-  </ul>
+  <ClipBoard />
 </template>
-<script setup lang="ts">
-import { ref } from 'vue';
 
-const flg = ref(false);
+<script setup lang="ts">
+import Parent from './components/Parent.vue';
+import ClipBoard from './components/ClipBoard.vue';
+
+
+const formatDate = (date: Date): string => {
+  const year = date.getFullYear();
+  // getMonth() は 0〜11 なので、+1 して正しい月に変換
+  const month = (date.getMonth() + 1).toString().padStart(2, '0');
+  const day = date.getDate().toString().padStart(2, '0');
+  return `${year}-${month}-${day}`;
+}
+
+const date = new Date();
+console.log(formatDate(date));
 
 </script>
