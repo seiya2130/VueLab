@@ -16,4 +16,22 @@ import { ref } from 'vue';
 
 const flg = ref(false);
 
+type PersonKey = keyof Person;
+
+const name: PersonKey = 'name';
+const age: PersonKey = 'age';
+
+
+const person = {
+  name: 'Taro',
+  age: 20,
+}
+
+type Person = typeof person;
+
+const greet = (person: Person) => {
+  console.log(`Hello, ${person.name}`);
+}
+
+greet(person); // Hello, Taro
 </script>
